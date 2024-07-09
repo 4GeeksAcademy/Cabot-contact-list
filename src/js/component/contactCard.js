@@ -1,6 +1,6 @@
 import React from "react"
 
-export const ContactCard = () => {
+export const ContactCard = ({contact}) => {
     return(
         <div className ="outerContainer d-flex">
             <div className="leftContainer">
@@ -8,17 +8,17 @@ export const ContactCard = () => {
                     <img></img>
                 </div>
                 <div className="information d-grid">
-                    <p>name</p>
+                    <p>{contact.name}</p>
                     <div>
                         <i className="fa-solid fa-location-dot"></i>
-                        <p>address</p>
+                        <p>{contact.address}</p>
                     </div>
                     <div>
                         <i className="fa-solid fa-phone"></i>
-                        <p>phone</p>
+                        <p>{contact.phone}</p>
                     </div>
                         <i className="fa-solid fa-envelope"></i>
-                        <p>email</p>
+                        <p>{contact.email}</p>
                 </div>
             </div>
             <div className="rightContainer text-align-right">

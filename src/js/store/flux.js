@@ -3,30 +3,31 @@ import { json } from "react-router";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
+			contacts:[
 				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
+					name:"Jacob Cabot",
+					email:"cutcocabot@gmail.com",
+					phone:"704-256-0630",
+					address:"111 main street, Monroe, nc 28111"
 				},
 				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				},
-			],
-			contacts:[], /**will eventually hold the contact information retrieved from the API */
+					name:"Walter White",
+					email:"cutcocabot@gmail.com",
+					phone:"704-256-0630",
+					address:"111 main street, Monroe, nc 28111"
+				}
+			], /**will eventually hold the contact information retrieved from the API */
 		},
 		actions: {
 			getContacts:() => {
-				fetch("https://playground.4geeks.com/contact/agendas/JacobBCabot")
+				fetch("https://playground.4geeks.com/contact/agendas/JacobBCabot/contacts")
 				.then((resp) => {
 					if(!resp.ok) throw Error(resp.statusText);
 					return resp.json();
 				})
 				.then((data) => {
 					console.log(data);
-					setStore({contacts:data});
+					setStore({contacts:data.contacts});
 
 				})
 				.catch((error) => {
